@@ -498,8 +498,8 @@ const MAX_FEMALE = 2;
 function getDeadline() {
   const stored = localStorage.getItem('tournamentDeadline');
   if (stored) return new Date(stored);
-  // Default: set to now (expired immediately)
-  const d = new Date();
+  // Default: 5 days from first load
+  const d = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000);
   localStorage.setItem('tournamentDeadline', d.toISOString());
   return d;
 }
